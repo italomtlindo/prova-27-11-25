@@ -1,0 +1,41 @@
+DROP DATABASE IF EXISTS EscolaExtra;
+CREATE DATABASE EscolaExtra;
+USE EscolaExtra;
+
+
+CREATE TABLE alunos (
+id_aluno INT AUTO_INCREMENT PRIMARY KEY,
+nome int,
+turma int
+);  
+
+CREATE TABLE oficinas (
+id_oficina INT AUTO_INCREMENT PRIMARY KEY,
+nome int,
+categoria int, 
+vagas varchar(100)
+);
+
+CREATE TABLE incricoes (
+id_inscricao INT AUTO_INCREMENT PRIMARY KEY,
+data_inscriacao date,
+id_aluno INT,
+id_oficina INT,
+FOREIGN KEY (id_aluno) REFERENCES alunos(id_aluno),
+FOREIGN KEY (id_oficina) REFERENCES oficinas(id_oficina)
+);
+
+
+INSERT INTO alunos (nome, turma)values
+('Ana MAria', '2°A');
+
+INSERT INTO oficinas ( nome, categoria, vagas)values
+('sala de mecanica', 'mecanica', 120);
+    
+INSERT INTO incricoes (data_inscriacao, id_aluno, id_oficina)values
+('2025-11-26', '1', '1');
+
+
+
+
+
